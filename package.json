@@ -7,7 +7,7 @@
     "build": "npm run hugo:build",
     "clean": "npm run hugo:clean",
     "serve": "npm run hugo:serve",
-    "hugo:build": "hugo -d build",
+    "hugo:build": "hugo -d public",
     "hugo:serve": "hugo server",
     "hugo:clean": "rm -rf build resources public"
   },
