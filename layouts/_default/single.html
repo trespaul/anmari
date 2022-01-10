@@ -1,0 +1,39 @@
+{{ define "main" }}
+
+{{- partial "header.html" . -}}
+
+<!-- if blog -->
+{{ if or (or (eq .Section "post") (eq .Section "blog")) (or (eq .Section "categories") (eq .Section "tags") )}}
+
+  <main class="prose">
+    <section>
+      <img src="{{ .Params.image | absURL }}" alt="{{ .Title }}">
+      <h2>{{ .Title }}</h2>
+      {{ if .Params.toc }}
+        {{ .TableOfContents }}
+      {{ end }}
+    </section>
+
+    <article>
+      {{.Content}}
+    </article>
+    
+    <!-- comments -->
+    {{ if site.DisqusShortname }}
+    <section>
+      {{ template "_internal/disqus.html" . }}
+    </section>
+    {{ end }}
+  </main>
+
+  <!-- regular page -->
+  {{ else }}
+    <main class="prose container mx-auto my-4">
+      {{ partial "page-header.html" . }}
+      <article>
+        {{ .Content }}
+      </article>
+    </main>
+  {{ end }}
+
+{{ end }}

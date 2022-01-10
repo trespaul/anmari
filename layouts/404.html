@@ -1,0 +1,15 @@
+{{ define "main" }}   
+
+{{ partial "page-header.html" . }}
+
+<div>
+  <a href="{{ "/" | relURL }}">
+    {{ with site.Params.error404 }}
+    <img
+      src="{{ .image | absURL }}"
+      title="{{.copyright}}"
+      >
+      {{end}}
+  </a>
+</div>
+{{ end }}

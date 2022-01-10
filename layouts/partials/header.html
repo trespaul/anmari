@@ -1,0 +1,42 @@
+<nav
+  class="container px-6 py-3 mx-auto md:flex md:justify-between md:items-center"
+  style="display: none"
+>
+  <div class="flex items-center justify-between">
+    <a
+      class="text-xl font-bold text-gray-800 md:text-2xl hover:text-gray-700"
+      href="{{ site.BaseURL }}"
+    >
+      {{site.Title}}
+    </a>
+
+    <!-- mobile menu button -->
+    <div class="flex md:hidden">
+      <button
+        type="button"
+        class="mobile-menu-toggle hover:text-gray-600 focus:outline-none focus:text-gray-600"
+        aria-label="toggle menu"
+      >
+        <svg viewBox="0 0 24 24" class="w-6 h-6 fill-current">
+          <path
+            fill-rule="evenodd"
+            d="M4 5h16a1 1 0 0 1 0 2H4a1 1 0 1 1 0-2zm0 6h16a1 1 0 0 1 0 2H4a1 1 0 0 1 0-2zm0 6h16a1 1 0 0 1 0 2H4a1 1 0 0 1 0-2z"
+          ></path>
+        </svg>
+      </button>
+    </div>
+  </div>
+
+  <!-- mobile Menu open: "block", Menu closed: "hidden" -->
+  <div class="mobile-menu items-center md:flex">
+      {{ range site.Menus.main }}
+        <a
+          class="my-1 mx-4 text-gray-700 hover:text-indigo-500 md:mx-4 md:my-0"
+          href="{{ .URL | absURL }}"
+        >
+          {{ .Name }}
+        </a>
+      {{ end }}
+  </div>
+
+</nav>

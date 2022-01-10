@@ -1,0 +1,8 @@
+<section class="prose">
+  <h1>
+    {{ .Title | markdownify }}
+  </h1>
+  {{ with .Params.subtitle }}
+    <p>{{ . | markdownify }}</p>
+  {{ end }}
+</section>

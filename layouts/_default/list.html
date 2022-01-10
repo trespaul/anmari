@@ -1,0 +1,64 @@
+{{ define "main" }}
+
+{{- partial "header.html" . -}}
+
+{{ partial "page-header.html" . }}
+
+<!-- if blog -->
+{{ if or (or (eq .Section "post") (eq .Section "blog")) (or (eq .Section "categories") (eq .Section "tags") )}}
+
+  <section>
+
+    {{ range first 1 (where .Data.Pages "Type" "featured") }}
+      <div>
+        <img
+          src="{{ .Params.image | absURL }}"
+          alt="{{.Title}}"
+          class="img-fluid w-100"
+        >
+      </div>
+      <div>
+        <h2>
+          <a
+            href="{{ .Permalink }}"
+            class="post-title"
+          >
+            {{ .Title }}
+          </a>
+        </h2>
+        <p class="post-summary">{{ .Summary }}</p>
+        <a href="{{.Permalink}}">Read More</a>
+      </div>
+    {{ end }}
+
+    {{ $paginator := .Paginate .Data.Pages }}
+    {{ range $paginator.Pages }}
+      <div>
+        <div>
+          <img src="{{ .Params.image |absURL }}" alt="{{ .Title }}">
+          <div>
+            <h3><a
+              href="{{ .Permalink }}"
+              class="post-title"
+            >
+              {{ .Title }}
+            </a></h3>
+            <p class="post-summary">{{ .Summary }}</p>
+          </div>
+        </div>
+      </div>
+    {{ end }}
+    
+    <div>
+      {{ template "_internal/pagination.html" . }}
+    </div>
+  </section>
+
+<!-- regular page -->
+{{ else }}
+  <section>
+    {{ .Content }}
+  </section>
+{{ end }}
+
+{{ end }}

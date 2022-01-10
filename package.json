@@ -1,0 +1,23 @@
+{
+  "name": "anmari",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "npm run hugo:build",
+    "clean": "npm run hugo:clean",
+    "serve": "npm run hugo:serve",
+    "hugo:build": "hugo -d build",
+    "hugo:serve": "hugo server",
+    "hugo:clean": "rm -rf build resources public"
+  },
+  "author": "Paul Joubert",
+  "license": "ISC",
+  "devDependencies": {
+    "@tailwindcss/typography": "^0.5.0",
+    "autoprefixer": "^10.4.2",
+    "hugo-bin": "^0.79.2",
+    "postcss": "^8.4.5",
+    "tailwindcss": "^3.0.12"
+  }
+}

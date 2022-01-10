@@ -1,0 +1,19 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  @apply font-serif leading-relaxed;
+  background-color: #fdefe2;
+  color: #221b19;
+}
+
+a, .btn {
+  @apply underline decoration-4 hover:no-underline;
+  text-decoration-color: #ff9b7c;
+  font-variant: small-caps;
+}
+
+input, textarea {
+  border-color: #534743;
+}
