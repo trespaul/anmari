@@ -41,7 +41,7 @@
 
 /* basics */
 body {
-  @apply font-serif leading-relaxed text-3xl;
+  @apply font-serif text-3xl;
   background-color: var(--background);
   color: var(--text);
 }

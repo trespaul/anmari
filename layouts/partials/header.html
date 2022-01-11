@@ -1,9 +1,9 @@
 <header
   class="container p-8 mx-auto
-    grid grid-cols-1 gap-x-4 items-start
+    grid grid-cols-1 gap-4 items-start
     xl:grid-cols-2"
 >
-  <div class="flex items-center justify-between">
+  <div>
     <a
       class="muted"
       href="{{ site.BaseURL }}"
@@ -11,9 +11,27 @@
       {{site.Title}}
     </a>
 
+    <!-- mobile menu button -->
+    <!--
+    <div class="flex sm:hidden">
+      <button
+        type="button"
+        class="mobile-menu-toggle text-gray-500 hover:text-gray-600 focus:outline-none focus:text-gray-600"
+        aria-label="toggle menu"
+      >
+        <svg viewBox="0 0 24 24" class="w-6 h-6 fill-current">
+          <path
+            fill-rule="evenodd"
+            d="M4 5h16a1 1 0 0 1 0 2H4a1 1 0 1 1 0-2zm0 6h16a1 1 0 0 1 0 2H4a1 1 0 0 1 0-2zm0 6h16a1 1 0 0 1 0 2H4a1 1 0 0 1 0-2z"
+          ></path>
+        </svg>
+      </button>
+    </div>
+    -->
+
   </div>
 
-  <nav class="flex gap-8">
+  <nav class="mobile-menu flex flex-wrap gap-x-8 gap-y-0">
     {{ range site.Menus.main }}
       <a
         class="muted lowercase"
