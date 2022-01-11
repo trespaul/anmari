@@ -2,9 +2,15 @@
 @tailwind components;
 @tailwind utilities;
 
-/* @import url('https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,600;1,400;1,600&display=swap'); */
+/* variables */
+:root {
+  --accent: #ff9b7c;
+  --background: #fdefe2;
+  --text: #221b19;
+  --element: #534743;
+}
 
-
+/* font */
 @font-face {
   font-family: 'EB Garamond';
   src: url('/fonts/EBGaramond12-Regular.woff') format('woff');
@@ -18,14 +24,6 @@
   font-weight: normal;
   font-style: italic;
 }
-
-/* @font-face { */
-/*   font-family: 'EB Garamond'; */
-/*   src: url('/fonts/EBGaramondSC12-Regular.woff') format('woff'); */
-/*   font-weight: normal; */
-/*   font-style: normal; */
-/*   font-variant: small-caps; */
-/* } */
 
 @font-face {
   font-family: 'EB Garamond';
@@ -41,47 +39,89 @@
   font-style: italic;
 }
 
-/* @font-face { */
-/*   font-family: 'EB Garamond'; */
-/*   src: url('/fonts/EBGaramondSC08-Regular.woff') format('woff'); */
-/*   font-weight: bold; */
-/*   font-style: normal; */
-/*   font-variant: small-caps; */
-/* } */
-
+/* basics */
 body {
-  @apply font-serif leading-relaxed;
-  background-color: #fdefe2;
-  color: #221b19;
+  @apply font-serif leading-relaxed text-3xl;
+  background-color: var(--background);
+  color: var(--text);
+}
+
+.btn {
+  font-variant: small-caps;
 }
 
 a, .btn {
   @apply underline decoration-4 hover:no-underline;
-  text-decoration-color: #ff9b7c;
-  font-variant: small-caps;
+  text-decoration-color: var(--accent);
 }
 
-p a {
-  font-variant: normal;
+/* variant */
+a.muted {
+  @apply no-underline hover:text-gray-500
 }
 
 input, textarea {
-  border-color: #534743;
+  border-color: var(--element);
 }
 
+/* on pages: lowercase when in two-column, bold and normal case when stacked */
 h1 {
-  @apply font-bold xl:font-normal xl:lowercase
+  @apply text-4xl font-bold xl:font-normal xl:lowercase
 }
 
+/* on pages: lowercase italic when two-column and h1 is lowercase and normal weight */
 .subtitle {
-  @apply italic text-3xl
+  @apply font-normal xl:italic xl:lowercase;
 }
 
+/* reapply basics */
 h2 {
-  @apply font-bold md:font-normal
+  @apply text-4xl mt-8 mb-4
 }
 
+h3 {
+  @apply italic mb-4 mt-6
+}
+
+/* reapply basics, justify if screen big enough */
 p {
-  @apply mb-4 text-justify;
+  @apply text-left md:text-justify mb-4;
   hyphens: auto;
+}
+
+/* reapply basics */
+blockquote {
+  @apply pl-4 border-l-4 mb-4;
+  border-color: var(--element);
+}
+
+ul {
+  @apply ml-8 mb-4 list-disc;
+}
+
+ol {
+  @apply ml-8 mb-4 list-decimal;
+}
+
+/* TOC: extra space, no bullets, align to left, no link lines */
+#TableOfContents {
+  @apply mt-8
+}
+
+#TableOfContents ul {
+  @apply list-none
+}
+
+#TableOfContents > ul {
+  @apply ml-0
+}
+
+#TableOfContents a {
+  @apply no-underline hover:text-gray-500
+  /* can I "@apply" a.muted? */
+}
+
+/* so heading in left and right column align */
+article > :first-child {
+  @apply mt-0
 }

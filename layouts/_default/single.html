@@ -5,7 +5,7 @@
 <!-- if blog -->
 {{ if or (or (eq .Section "post") (eq .Section "blog")) (or (eq .Section "categories") (eq .Section "tags") )}}
 
-  <main class="prose">
+  <main>
     <section>
       <img src="{{ .Params.image | absURL }}" alt="{{ .Title }}">
       <h2>{{ .Title }}</h2>
@@ -30,14 +30,20 @@
   {{ else }}
     <main class="container mx-auto my-16">
 
-    <section class="text-3xl m-8
-      grid grid-cols-1 gap-x-4 gap-y-4 items-start
-      xl:grid-cols-2 xl:gap-y-24"
-    >
-      {{ partial "page-header.html" . }}
-      <article>
-        {{ .Content }}
-      </article>
+      <section class="text-3xl m-8
+        grid grid-cols-1 gap-x-4 gap-y-24 items-start
+        xl:grid-cols-2"
+      >
+        <div>
+          {{ partial "page-header.html" . }}
+          {{ if .Params.toc }}
+            {{ .TableOfContents }}
+          {{ end }}
+        </div>
+        <article>
+          {{ .Content }}
+        </article>
+      </section>
     </main>
   {{ end }}
 

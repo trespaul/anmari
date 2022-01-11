@@ -16,15 +16,13 @@ A lot of code is adapted from the [Sicily](https://github.com/cristianmarint/sic
 ## Todo
 
 - general
-  - h1 style coordinate
+  - tailwind colours config instead of css vars?
 - index
   - fixed scroll positions
   - contact form action test
   - refactor -> modular
+  - vertical spacing squashed for high aspect ratio devices (e.g. landscape phones) (-> padding / margins to components?)
 - pages
-  - navbar (or back button)
-  - "prose" typography
-  - toc test
 - calendar
   - implement (fetch from google sheet? csv file?)
 - media

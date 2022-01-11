@@ -8,7 +8,7 @@
     >
       <div class="hero-text">
         <h1 class="text-4xl font-bold normal-case mb-2">{{.title}}</h1>
-        <p class="subtitle">{{.subtitle}}</p>
+        <p class="text-3xl">{{.subtitle}}</p>
       </div>
       <img
         id="hero-logo"
@@ -19,28 +19,28 @@
     </section>
   {{ end }}
 
-  <section class="min-h-screen text-3xl snap-always snap-center
+  <section id="info" class="min-h-screen text-3xl snap-always snap-center
     grid grid-cols-1 gap-x-4 gap-y-4 items-start content-center
     md:grid-cols-2 md:gap-y-24"
   >
-    <h2>about</h2>
+    <h2 class="font-bold md:font-normal mt-0">about</h2>
     <div class="mb-8">
       <p class="inline mr-4">Anmari van der Westhuizen is Adjunct Professor and Head of the Odeion String Quartet at the University of the Free State, South Africa.</p>
-      <a href="/about">more</a>
+      <a href="/about" class="btn">more</a>
     </div>
 
-    <h2>calendar</h2>
+    <h2 class="font-bold md:font-normal mt-0">calendar</h2>
     <div class="mb-8">
       <p class="inline mr-4">16 June: solo at Odeion.</p>
-      <a href="/calendar">more</a>
+      <a href="/calendar" class="btn">more</a>
     </div>
 
-    <h2>media</h2>
+    <h2 id="media" class="font-bold md:font-normal mt-0">media</h2>
     <div class="mb-8 flex gap-x-4 flex-wrap">
-      <a href="/music">music</a>
-      <a href="/photos">photos</a>
-      <a href="/videos">videos</a>
-      <a href="/catalogue">catalogue</a>
+      <a href="/music" class="btn">music</a>
+      <a href="/photos" class="btn">photos</a>
+      <a href="/videos" class="btn">videos</a>
+      <a href="/catalogue" class="btn">catalogue</a>
     </div>
   </section>
 
@@ -48,25 +48,25 @@
     grid grid-cols-1 gap-x-4 gap-y-4 items-start content-center
     md:grid-cols-2 md:gap-y-24"
   >
-    <h2>contact</h2>
+    <h2 class="font-bold md:font-normal mt-0">contact</h2>
     <form class="" action="{{ site.Params.contact_form_action | safeURL }}" method="POST">
-      <div class="my-4">
+      <div class="mb-4">
         <label>name</label>
         <input class="w-full border-4" type="text" name="name" required>
       </div>
-      <div class="my-4">
+      <div class="mb-4">
         <label>email</label>
         <input class="w-full border-4" type="email" name="email" required>
       </div>
-      <div class="my-4">
+      <div class="mb-4">
         <label>subject</label>
         <input class="w-full border-4" type="text" name="subject" required>
       </div>
-      <div class="my-4">
+      <div class="mb-4">
         <label>message</label>
         <textarea class="w-full border-4"></textarea>
       </div>
-      <button class="btn py-4" type="submit">send</button>
+      <button class="btn mt-4" type="submit">send</button>
     </form>
   </section>
 

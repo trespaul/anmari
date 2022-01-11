@@ -4,15 +4,15 @@ title: Anmari van der Westhuizen
 
 menu:
   main:
-    - URL: blog
-      name: Blog
+    - URL: /about
+      name: About
       weight: 1
-    - URL: pricing
-      name: Pricing
+    - URL: /calendar
+      name: Calendar
       weight: 2
-    - URL: contact
-      name: Contact
+    - URL: '/#info'
+      name: Media
       weight: 3
-    - URL: faq
-      name: FAQ
+    - URL: '/#contact'
+      name: Contact
       weight: 4
