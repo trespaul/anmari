@@ -4,12 +4,18 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build": "npm run hugo:build",
-    "clean": "npm run hugo:clean",
-    "serve": "npm run hugo:serve",
-    "hugo:build": "hugo -d public",
-    "hugo:serve": "hugo server",
-    "hugo:clean": "rm -rf build resources public"
+    "build": "npm-run-all clean build:*",
+    "clean": "npm-run-all clean:*",
+    "serve": "npm-run-all clean pre:* --parallel serve:*",
+
+    "build:hugo": "hugo -d public",
+    "serve:hugo": "hugo server",
+    "clean:hugo": "rm -rf build resources public",
+
+    "build:tw": "tailwind -i ./assets/css/style.css -o ./assets/css/style.built.css --minify",
+    "pre:tw":   "tailwind -i ./assets/css/style.css -o ./assets/css/style.built.css",
+    "serve:tw": "tailwind -i ./assets/css/style.css -o ./assets/css/style.built.css --watch",
+    "clean:tw": "rm -f ./assets/css/style.built.css"
   },
   "author": "Paul Joubert",
   "license": "ISC",
@@ -17,6 +23,7 @@
     "@tailwindcss/typography": "^0.5.0",
     "autoprefixer": "^10.4.2",
     "hugo-bin": "^0.79.2",
+    "npm-run-all": "^4.1.5",
     "postcss": "^8.4.5",
     "postcss-cli": "^9.1.0",
     "tailwindcss": "^3.0.12"

@@ -1,3 +1,8 @@
+### Project specifics
+
+# built css files
+/assets/css/style.built.css
+
 ### Hugo ###
 # Generated files by hugo
 /public/
