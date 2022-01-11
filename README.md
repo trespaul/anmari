@@ -15,13 +15,17 @@ A lot of code is adapted from the [Sicily](https://github.com/cristianmarint/sic
 
 ## Todo
 
+- general
+  - h1 style coordinate
 - index
   - fixed scroll positions
-  - contact form
-  - responsive spacing between h2 and content
+  - contact form action test
   - refactor -> modular
 - pages
-  - navbar
-  - typography -> two-column
+  - navbar (or back button)
+  - "prose" typography
+  - toc test
+- calendar
+  - implement (fetch from google sheet? csv file?)
 - media
-  - gallery
+  - gallery, photo, video

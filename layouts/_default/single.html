@@ -28,7 +28,12 @@
 
   <!-- regular page -->
   {{ else }}
-    <main class="prose container mx-auto my-4">
+    <main class="container mx-auto my-16">
+
+    <section class="text-3xl m-8
+      grid grid-cols-1 gap-x-4 gap-y-4 items-start
+      xl:grid-cols-2 xl:gap-y-24"
+    >
       {{ partial "page-header.html" . }}
       <article>
         {{ .Content }}

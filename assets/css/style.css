@@ -2,6 +2,53 @@
 @tailwind components;
 @tailwind utilities;
 
+/* @import url('https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,600;1,400;1,600&display=swap'); */
+
+
+@font-face {
+  font-family: 'EB Garamond';
+  src: url('/fonts/EBGaramond12-Regular.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'EB Garamond';
+  src: url('/fonts/EBGaramond12-Italic.woff') format('woff');
+  font-weight: normal;
+  font-style: italic;
+}
+
+/* @font-face { */
+/*   font-family: 'EB Garamond'; */
+/*   src: url('/fonts/EBGaramondSC12-Regular.woff') format('woff'); */
+/*   font-weight: normal; */
+/*   font-style: normal; */
+/*   font-variant: small-caps; */
+/* } */
+
+@font-face {
+  font-family: 'EB Garamond';
+  src: url('/fonts/EBGaramond08-Regular.woff') format('woff');
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'EB Garamond';
+  src: url('/fonts/EBGaramond08-Italic.woff') format('woff');
+  font-weight: bold;
+  font-style: italic;
+}
+
+/* @font-face { */
+/*   font-family: 'EB Garamond'; */
+/*   src: url('/fonts/EBGaramondSC08-Regular.woff') format('woff'); */
+/*   font-weight: bold; */
+/*   font-style: normal; */
+/*   font-variant: small-caps; */
+/* } */
+
 body {
   @apply font-serif leading-relaxed;
   background-color: #fdefe2;
@@ -14,6 +61,27 @@ a, .btn {
   font-variant: small-caps;
 }
 
+p a {
+  font-variant: normal;
+}
+
 input, textarea {
   border-color: #534743;
+}
+
+h1 {
+  @apply font-bold xl:font-normal xl:lowercase
+}
+
+.subtitle {
+  @apply italic text-3xl
+}
+
+h2 {
+  @apply font-bold md:font-normal
+}
+
+p {
+  @apply mb-4 text-justify;
+  hyphens: auto;
 }

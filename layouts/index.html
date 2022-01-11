@@ -7,8 +7,8 @@
       grid grid-cols-1 md:grid-cols-2 gap-x-4 gap-y-4 items-start content-center"
     >
       <div class="hero-text">
-        <h1 class="text-4xl font-bold mb-2">{{.title}}</h1>
-        <p class="italic text-xl">{{.subtitle}}</p>
+        <h1 class="text-4xl font-bold normal-case mb-2">{{.title}}</h1>
+        <p class="subtitle">{{.subtitle}}</p>
       </div>
       <img
         id="hero-logo"
@@ -20,47 +20,49 @@
   {{ end }}
 
   <section class="min-h-screen text-3xl snap-always snap-center
-    grid grid-cols-1 md:grid-cols-2 gap-x-4 gap-y-24 items-start content-center"
+    grid grid-cols-1 gap-x-4 gap-y-4 items-start content-center
+    md:grid-cols-2 md:gap-y-24"
   >
     <h2>about</h2>
-    <div>
-      <p class="inline mr-4">Anmari van der Westhuizen is Adjunct Professor and Head of the Odeion String Quartet at the University of the Free State.</p>
+    <div class="mb-8">
+      <p class="inline mr-4">Anmari van der Westhuizen is Adjunct Professor and Head of the Odeion String Quartet at the University of the Free State, South Africa.</p>
       <a href="/about">more</a>
     </div>
 
     <h2>calendar</h2>
-    <div>
+    <div class="mb-8">
       <p class="inline mr-4">16 June: solo at Odeion.</p>
       <a href="/calendar">more</a>
     </div>
 
     <h2>media</h2>
-    <div class="flex gap-x-4">
-      <a href="/calendar">music</a>
-      <a href="/calendar">photos</a>
-      <a href="/calendar">videos</a>
-      <a href="/calendar">catalogue</a>
+    <div class="mb-8 flex gap-x-4 flex-wrap">
+      <a href="/music">music</a>
+      <a href="/photos">photos</a>
+      <a href="/videos">videos</a>
+      <a href="/catalogue">catalogue</a>
     </div>
   </section>
 
   <section id="contact" class="min-h-screen text-3xl snap-always snap-center
-    grid grid-cols-1 md:grid-cols-2 gap-x-4 gap-y-24 items-start content-center"
+    grid grid-cols-1 gap-x-4 gap-y-4 items-start content-center
+    md:grid-cols-2 md:gap-y-24"
   >
     <h2>contact</h2>
     <form class="" action="{{ site.Params.contact_form_action | safeURL }}" method="POST">
-      <div class="py-4">
+      <div class="my-4">
         <label>name</label>
         <input class="w-full border-4" type="text" name="name" required>
       </div>
-      <div class="py-4">
+      <div class="my-4">
         <label>email</label>
         <input class="w-full border-4" type="email" name="email" required>
       </div>
-      <div class="py-4">
+      <div class="my-4">
         <label>subject</label>
         <input class="w-full border-4" type="text" name="subject" required>
       </div>
-      <div class="py-4">
+      <div class="my-4">
         <label>message</label>
         <textarea class="w-full border-4"></textarea>
       </div>
