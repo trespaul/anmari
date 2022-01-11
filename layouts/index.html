@@ -49,22 +49,28 @@
     md:grid-cols-2 md:gap-y-24"
   >
     <h2 class="font-bold md:font-normal mt-0">contact</h2>
-    <form class="" action="{{ site.Params.contact_form_action | safeURL }}" method="POST">
+    <form name="contact" method="POST" netlify class="">
       <div class="mb-4">
-        <label>name</label>
-        <input class="w-full border-4" type="text" name="name" required>
+        <label>
+          name
+          <input class="w-full border-4 p-2" type="text" name="name" required>
+        </label>
       </div>
       <div class="mb-4">
-        <label>email</label>
-        <input class="w-full border-4" type="email" name="email" required>
+        <label>
+          email
+          <input class="w-full border-4 p-2" type="email" name="email" required>
+        </label>
       </div>
       <div class="mb-4">
-        <label>subject</label>
-        <input class="w-full border-4" type="text" name="subject" required>
+        <label>subject
+          <input class="w-full border-4 p-2" type="text" name="subject" required>
+        </label>
       </div>
       <div class="mb-4">
-        <label>message</label>
-        <textarea class="w-full border-4"></textarea>
+        <label>message
+          <textarea class="w-full border-4 p-2 h-48" name="message"></textarea>
+        </label>
       </div>
       <button class="btn mt-4" type="submit">send</button>
     </form>
