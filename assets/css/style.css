@@ -57,7 +57,7 @@ a, .btn {
 
 /* variant */
 a.muted {
-  @apply no-underline hover:text-gray-500
+  @apply no-underline hover:text-stone-600
 }
 
 input, textarea {
