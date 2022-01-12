@@ -1,0 +1,32 @@
+{{ define "main" }}
+
+{{- partial "header.html" . -}}
+
+  <!-- regular page -->
+    <main class="container mx-auto my-16">
+
+      <section class="text-3xl m-8
+        grid grid-cols-1 gap-x-4 gap-y-24 items-start
+        xl:grid-cols-2"
+      >
+        <div>
+          {{ partial "page-header.html" . }}
+        </div>
+
+        <article>
+          <ol class="list-none ml-0">
+            {{ range $.Site.Data.calendar }}
+              <li class="mb-4">
+                <ul class="list-none ml-0 pb-4">
+                  <li class="">{{ .date }}</li>
+                  <li class="font-bold">{{ .name }}</li>
+                  <li class="">{{ .description }}</li>
+                  <li class="italic">{{ .location }}</li>
+                </ul>
+              </li>
+            {{ end }}
+          </ol>
+        </article>
+      </section>
+    </main>
+{{ end }}
