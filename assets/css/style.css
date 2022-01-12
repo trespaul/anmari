@@ -122,6 +122,14 @@ ol {
 }
 
 /* so heading in left and right column align */
-article > :first-child {
+article.page > :first-child {
   @apply mt-0
 }
+
+/*figure.gallery-item figcaption {
+  @apply hidden absolute bg-white bottom-0
+}
+
+figure.gallery-item:hover figcaption {
+  @apply block
+}*/
