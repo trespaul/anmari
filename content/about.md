@@ -50,5 +50,5 @@ Hendrik Hofmeyr.
 Anmari has more than thirty years of experience as principal cellist of
 orchestras and string ensembles. She was the conductor/director of the UCT
 String Ensemble for ten years and is currently the conductor of the Odeion
-Simfonia and co-conductor of the Free State Youth Orchestra. She is a founding
+Sinfonia and co-conductor of the Free State Youth Orchestra. She is a founding
 member of the UCT Trio, the Collage Ensemble and I Grandi Violoncellisti.
