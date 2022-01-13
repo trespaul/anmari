@@ -15,7 +15,7 @@
 
         <article>
           <ol class="list-none ml-0">
-            {{ with .Site.Data.calendar.event }}
+            {{ with .Site.Data.calendar }}
               {{ range where . "isodate" "!=" nil}}
                 {{ if (.isodate | time.AsTime).After now }}
                   <li class="mb-4">

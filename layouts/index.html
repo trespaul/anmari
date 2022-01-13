@@ -32,9 +32,9 @@
     <h2 class="font-bold md:font-normal mt-0">calendar</h2>
     <div class="mb-8">
       {{ $defaultmessage := "No upcoming events for now. Check back soon for updates!" }}
-      {{ $calendar := .Site.Data.calendar.event }}
+      {{ $calendar := .Site.Data.calendar }}
       {{ if $calendar }}
-        {{ $next := index (where $calendar "isodate" ">=" now) 0 }}
+        {{ $next := index (where $calendar "isodate" ">=" (now.Format "2006-01-02")) 0 }}
         {{ if $next }}
           <p class="inline mr-4">
             {{ $next.date }}: {{ $next.title }}.
