@@ -15,15 +15,27 @@
 
         <article>
           <ol class="list-none ml-0">
-            {{ range $.Site.Data.calendar }}
-              <li class="mb-4">
-                <ul class="list-none ml-0 pb-4">
-                  <li class="">{{ .date }}</li>
-                  <li class="font-bold">{{ .name }}</li>
-                  <li class="">{{ .description }}</li>
-                  <li class="italic">{{ .location }}</li>
-                </ul>
-              </li>
+            {{ range where .Site.Data.calendar.event "isodate" "!=" nil}}
+              {{ if (.isodate | time.AsTime).After now }}
+                <li class="mb-4">
+                  <ul class="list-none ml-0 pb-4">
+                    <!-- date and name required -->
+                    <li class="">{{ .date }}</li>
+                    <li class="font-bold">
+                      {{ .title }}
+                      {{ with .link }}
+                        <a class="ml-4 btn" href="{{ . }}">link</a>
+                      {{ end }}
+                    </li>
+                    {{ with .description }}
+                      <li class="">{{ . }}</li>
+                    {{ end }}
+                    {{ with .location }}
+                      <li class="italic">{{ . }}</li>
+                    {{ end }}
+                  </ul>
+                </li>
+              {{ end }}
             {{ end }}
           </ol>
         </article>
