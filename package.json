@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build": "npm-run-all clean build:*",
+    "build": "npm-run-all clean build:tw build:hugo",
     "clean": "npm-run-all clean:*",
     "serve": "npm-run-all clean pre:* --parallel serve:*",
 
