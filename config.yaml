@@ -1,6 +1,8 @@
 baseURL: 'https://anmarivanderwesthuizen.com/'
 title: Anmari van der Westhuizen
 
+googleAnalytics: UA-58533584-1
+
 params:
   languageCode: en-za
   author: Anmari van der Westhuizen
