@@ -2,16 +2,35 @@
   <meta charset="utf-8">
   <title>{{ .Title }}</title>
 
+  <meta name="language" content="{{ site.Params.languageCode }}">
+
   <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 
-  <!-- mobile responsive meta -->
+  <!-- mobile responsive -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="{{ with .Params.Description }}{{ . }}{{ else }}{{ with site.Params.description }}{{ . }}{{ end }}{{ end }}">
+
+  <!-- meta-information -->
+  {{ with .Params.Description }}
+    <meta name="description" content="{{ . }}">
+  {{ else }}
+    {{ with site.Params.description }}
+      <meta name="description" content="{{ . }}">
+    {{ end }}
+  {{ end }}
 
   {{ with site.Params.author }}
     <meta name="author" content="{{ . }}">
   {{ end }}
+
+  {{ with site.Params.designer }}
+    <meta name="designer" content="{{ . }}">
+  {{ end }}
+
+  {{ with site.Params.copyright }}
+    <meta name="copyright"content=" {{ . }}">
+  {{ end }}
+
   {{ hugo.Generator }}
 
   <!-- css plugins -->
@@ -28,15 +47,12 @@
     <link rel="stylesheet" href="{{ $styles.RelPermalink }}" integrity="{{ $styles.Data.Integrity }}"/>
   {{ end }}
 
-  <!--Favicon-->
-  <link rel="shortcut icon" href="{{ `images/logo.png` | absURL }}" type="image/x-icon">
-  <link rel="icon" href="{{ `images/logo.png` | absURL }}" type="image/x-icon">
-
-  {{ with .Params.Image }}
-    <meta property="og:image" content="{{ . | absURL }}" />
-  {{ end }}
+  <!-- Favicon -->
+  <link rel="shortcut icon" href="{{ site.Params.logo | absURL }}" type="image/x-icon">
+  <link rel="icon" href="{{ site.Params.logo | absURL }}" type="image/x-icon">
 
   {{ template "_internal/opengraph.html" . }}
+  {{ template "_internal/twitter_cards.html" . }}
   {{ template "_internal/google_analytics.html" . }}
   {{ template "_internal/google_analytics_async.html" . }}
   
