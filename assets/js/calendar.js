@@ -29,21 +29,26 @@ async function loadCalendarData() {
     return date >= currentDate;
   });
 
-  for (let event of filteredData) {
-    const newChild = document.createElement("li")
-    newChild.className = "mb-4"
-    newChild.innerHTML = `
-      <ul class="list-none ml-0 pb-4">
-        <li class="">${event.date}</li>
-        <li class="font-bold">
-          ${event.title}
-          ${event.link ? `<a class="ml-4 btn" href="${event.link}">link</a>` : ""}
-        </li>
-        ${event.description ? `<li>${event.description}</li>` : ""}
-        ${event.location ? `<li class="italic">${event.location}</li>` : ""}
-      </ul>
+  if (filteredData.length == 0) {
+    list.innerHTML = `
+      <li class="ml-0 mb-4">No upcoming calendar entries for now.</li>
     `
-    list.appendChild(newChild)
+  } else {
+    for (let event of filteredData) {
+      const newChild = document.createElement("li")
+      newChild.className = "mb-4"
+      newChild.innerHTML = `
+        <ul class="list-none ml-0 pb-4">
+          <li class="">${event.date}</li>
+          <li class="font-bold">
+            ${event.title}
+            ${event.link ? `<a class="ml-4 btn" href="${event.link}">link</a>` : ""}
+          </li>
+          ${event.description ? `<li>${event.description}</li>` : ""}
+          ${event.location ? `<li class="italic">${event.location}</li>` : ""}
+        </ul>
+      `
+      list.appendChild(newChild)
+    }
   }
-  
 }
