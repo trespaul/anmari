@@ -30,7 +30,7 @@
     </div>
 
     <h2 class="font-bold md:font-normal mt-0">calendar</h2>
-    <div class="mb-8">
+    <div id="calendarMessage" class="mb-8">
       {{ $defaultmessage := "No upcoming events for now. Check back soon for updates!" }}
       {{ $calendar := .Site.Data.calendar }}
       {{ if $calendar }}
@@ -88,6 +88,9 @@
       <button class="btn mt-4" type="submit">send</button>
     </form>
   </section>
+
+  {{ $script := resources.Get "js/calendar_nextup.js" | minify | fingerprint | resources.PostProcess }}
+  <script src="{{ $script.RelPermalink }}" integrity="{{ $script.Data.Integrity }}"></script>
 
 </main>
 

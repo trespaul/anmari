@@ -14,7 +14,7 @@
         </div>
 
         <article>
-          <ol class="list-none ml-0">
+          <ol id="calendarList" class="list-none ml-0">
             {{ with .Site.Data.calendar }}
               {{ range where . "isodate" "!=" nil}}
                 {{ if (.isodate | time.AsTime).After now }}
@@ -43,6 +43,8 @@
             {{ end }}
           </ol>
         </article>
+        {{ $script := resources.Get "js/calendar.js" | minify | fingerprint | resources.PostProcess }}
+        <script src="{{ $script.RelPermalink }}" integrity="{{ $script.Data.Integrity }}"></script>
       </section>
     </main>
 {{ end }}
