@@ -11,11 +11,11 @@ async function loadCalendarData() {
   const jsonData = JSON.parse(textData.substring(47).slice(0, -2))
 
   const data = jsonData.table.rows.map(i => { return {
-    date: i.c[0].v,
-    isodate: i.c[1].v,
-    location: i.c[2].v,
-    title: i.c[3].v,
-    description: i.c[4].v
+    date: i.c[0]?.v,
+    isodate: i.c[1]?.v,
+    location: i.c[2]?.v,
+    title: i.c[3]?.v,
+    description: i.c[4]?.v
   }})
 
   const currentDate = new Date();
