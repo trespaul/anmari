@@ -1,0 +1,127 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* fonts */
+@font-face {
+  font-family: 'EB Garamond';
+  src: url('/fonts/EBGaramond12-Regular.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'EB Garamond';
+  src: url('/fonts/EBGaramond12-Italic.woff') format('woff');
+  font-weight: normal;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'EB Garamond';
+  src: url('/fonts/EBGaramond08-Regular.woff') format('woff');
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'EB Garamond';
+  src: url('/fonts/EBGaramond08-Italic.woff') format('woff');
+  font-weight: bold;
+  font-style: italic;
+}
+/* basics */
+body {
+  @apply
+    font-serif text-3xl
+    text-text dark:text-darktext
+    bg-bg dark:bg-darkbg;
+}
+
+.btn {
+  font-variant: small-caps;
+}
+
+a, .btn {
+  @apply
+    underline decoration-4 hover:no-underline
+    decoration-accent dark:decoration-darkaccent;
+}
+
+/* variant */
+a.muted {
+  @apply no-underline hover:opacity-70;
+}
+
+input, textarea {
+  @apply border-text dark:border-darktext bg-white dark:bg-darktext/10;
+}
+
+/* on pages: lowercase when in two-column, bold and normal case when stacked */
+h1 {
+  @apply text-4xl font-bold xl:font-normal xl:lowercase
+}
+
+/* on pages: lowercase italic when two-column and h1 is lowercase and normal weight */
+.subtitle {
+  @apply font-normal xl:italic xl:lowercase;
+}
+
+/* reapply basics */
+h2 {
+  @apply text-4xl mt-8 mb-4
+}
+
+h3 {
+  @apply italic mb-4 mt-6
+}
+
+/* reapply basics, justify if screen big enough */
+p {
+  @apply text-left md:text-justify mb-4;
+  hyphens: auto;
+}
+
+/* reapply basics */
+blockquote {
+  @apply pl-4 border-l-4 mb-4 border-text dark:border-darktext;
+}
+
+ul {
+  @apply ml-8 mb-4 list-disc;
+}
+
+ol {
+  @apply ml-8 mb-4 list-decimal;
+}
+
+/* TOC: extra space, no bullets, align to left, no link lines */
+#TableOfContents {
+  @apply mt-8
+}
+
+#TableOfContents ul {
+  @apply list-none
+}
+
+#TableOfContents > ul {
+  @apply ml-0
+}
+
+#TableOfContents a {
+  @apply no-underline hover:opacity-70
+  /* can I "@apply" a.muted? */
+}
+
+/* so heading in left and right column align */
+article.page > :first-child {
+  @apply mt-0
+}
+
+/*figure.gallery-item figcaption {
+  @apply hidden absolute bg-white bottom-0
+}
+
+figure.gallery-item:hover figcaption {
+  @apply block
+}*/

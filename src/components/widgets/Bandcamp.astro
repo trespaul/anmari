@@ -1,0 +1,15 @@
+---
+const { id, title } = Astro.props;
+
+const src = `https://bandcamp.com/EmbeddedPlayer/album=${id}/size=large/bgcol=ffffff/linkcol=e99708/transparent=true/`
+---
+
+<iframe 
+  title={title}
+  class="my-8 mx-auto"
+  style="border: 0; width: 350px; height: 786px;"
+  src={src}
+  seamless
+>
+</iframe>
+

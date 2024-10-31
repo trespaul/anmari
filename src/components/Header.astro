@@ -1,0 +1,39 @@
+---
+import { SITE_TITLE } from '../consts';
+
+const menuItems = [
+  { url: '/about', name: 'About' },
+  { url: '/calendar', name: 'Calendar' },
+  { url: '/#info', name: 'Media' },
+  { url: '/#contact', name: 'Contact' },
+]
+---
+
+<header
+  class="container p-8 mx-auto
+    grid grid-cols-1 gap-4 items-start
+    xl:grid-cols-2"
+>
+  <div>
+    <a
+      class="muted"
+      href="/"
+    >
+      {SITE_TITLE}
+    </a>
+
+  </div>
+
+  <nav class="mobile-menu flex flex-wrap gap-x-8 gap-y-0">
+    { menuItems.map( ({ url, name }) =>
+	      <a
+	        class="muted lowercase"
+	        href={url}
+	      >
+	        {name}
+	      </a>
+			)
+    }
+  </nav>
+
+</header>
