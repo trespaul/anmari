@@ -1,21 +1,11 @@
 ---
-import BaseHead from '../components/BaseHead.astro';
-import Header from '../components/Header.astro';
-import Footer from '../components/Footer.astro';
+import Base from '../components/Base.astro';
 
 const title = "404 Page Not Found";
 const message = "this page does not exist.";
 ---
 
-<!doctype html>
-<html lang="en">
-  <BaseHead title={title} description={message} />
-  <body class="min-h-screen flex flex-col">
-    <Header />
-    <main class="container mx-auto my-16 grow">
-      <h1 style="text-align: center; font-size: 8rem; line-height: 8rem">404</h1>
-      <p style="text-align: center; font-style: italic;">{message}</p>
-    </main>
-    <Footer />
-  </body>
-</html>
+<Base title={title} description={message}>
+  <h1 style="text-align: center; font-size: 8rem; line-height: 8rem">404</h1>
+  <p style="text-align: center; font-style: italic;">{message}</p>
+</Base>

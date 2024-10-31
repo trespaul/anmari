@@ -1,0 +1,19 @@
+---
+import BaseHead from './BaseHead.astro';
+import Header from './Header.astro';
+import Footer from './Footer.astro';
+
+const { title, description, header = true } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+  <BaseHead title={title} description={description} />
+  <body class="min-h-svh flex flex-col">
+    { header && <Header /> }
+    <main class="container mx-auto my-16 grow">
+      <slot />
+    </main>
+    <Footer />
+  </body>
+</html>

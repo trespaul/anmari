@@ -1,0 +1,24 @@
+---
+import { Image } from 'astro:assets';
+import type { ImageMetadata } from 'astro';
+
+const { gallery } = Astro.props;
+const { absPhotoFolder, items } = gallery;
+
+const images = import.meta.glob<{ default: ImageMetadata; }>(
+  '/src/**/*.{jpeg,jpg,png,gif}'
+)
+---
+
+<section
+  class="gallery m-8 mt-24 gap-4 columns-1 md:columns-2 lg:columns-3"
+>
+  { items.map( ({ src = "", alt = "" }) =>
+      <Image
+        class="gallery-item mb-4"
+        src={images[absPhotoFolder + src]()}
+        alt={alt}
+      />
+    )
+  }
+</section>
