@@ -54,7 +54,7 @@ a.muted {
 }
 
 input, textarea {
-  @apply border-text dark:border-darktext bg-white dark:bg-darktext/10;
+  @apply bg-text/10 dark:bg-darktext/10;
 }
 
 /* on pages: lowercase when in two-column, bold and normal case when stacked */
