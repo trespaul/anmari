@@ -1,6 +1,6 @@
 ---
 title: Catalogue
-layout: ../layouts/Page.astro
+layout: "@/layouts/Page.astro"
 ---
 
 This selective investigation of contemporary solo violoncello works written

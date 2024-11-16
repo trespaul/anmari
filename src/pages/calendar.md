@@ -1,6 +1,6 @@
 ---
 title: Calendar
-layout: ../layouts/Page.astro
+layout: "@/layouts/Page.astro"
 ---
 
 Tuesday, 12 November 2024

@@ -1,6 +1,6 @@
 ---
 title: Photos
-layout: ../layouts/Page.astro
+layout: "@/layouts/Page.astro"
 gallery:
   absPhotoFolder: /src/assets/photos/
   items:

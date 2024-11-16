@@ -1,6 +1,6 @@
 ---
 title: About
-layout: ../layouts/Page.astro
+layout: "@/layouts/Page.astro"
 ---
 
 Anmari van der Westhuizen is Adjunct Professor and Head of the Odeion String
