@@ -1,0 +1,81 @@
+---
+import { getCollection } from 'astro:content';
+import Page from '@/layouts/Page.astro';
+import FormattedDate from '@/components/FormattedDate.astro';
+
+type Category = {
+  category: string,
+  title: string,
+  description: string,
+  filter: (types: string[]) => boolean,
+};
+
+export function getStaticPaths() {
+  const categories : Category[] = [
+    { category: 'posts',
+      title: 'Posts',
+      description: 'All posts on anmarivanderwesthuizen.com.',
+      filter: () => true,
+    },
+    { category: 'calendar',
+      title: 'Calendar',
+      description: 'Event calendar and updates.',
+      filter: types => types.includes('event'),
+    },
+    { category: 'videos',
+      title: 'Videos',
+      description: 'Video updates.',
+      filter: types => types.includes('video'),
+    },
+    { category: 'music',
+      title: 'Music',
+      description: 'Music updates.',
+      filter: types => types.includes('music'),
+    },
+    //{ category: 'photos',   description: 'Photo updates.', },
+  ];
+  return categories.map( item => ({
+    params: { category: item.category },
+    props: item,
+  }));
+}
+
+const { title, description, filter } = Astro.props;
+const posts = await getCollection('updates');
+const categoryPosts = posts
+  .filter(post => filter(post.data.type))
+  .sort( (a, b) => (new Date(b.data.start)).getTime() - (new Date(a.data.start)).getTime() );
+---
+
+<Page
+  title={title}
+  description={description}
+>
+  <ol id="calendarList" class="list-none ml-0">
+    { categoryPosts.map(async post => {
+        const { title, start, end, place, description, slug } = post.data;
+        // TODO: include time if not '00:00'
+        // TODO: paginate
+        // TODO: interactive sort and filter
+        return (
+          <a class="muted" href={`/post/${slug}`}>
+            <li class="mb-4">
+              <ul class="list-none ml-0 pb-4">
+                <li class="opacity-70">
+                  <FormattedDate
+                    start={new Date(start)}
+                    end={end ? new Date(end) : undefined}
+                  />
+                </li>
+                <li class="font-bold">{title}</li>
+                { description && <li class="">{description}</li> }
+                { place && <li class="italic opacity-70">{place}</li> }
+                {/* TODO: include media preview in listing */}
+              </ul>
+            </li>
+          </a>
+        )
+      })
+    }
+  </ol>
+</Page>

@@ -1,0 +1,16 @@
+---
+import YouTube from '@/components/widgets/Bandcamp.astro';
+
+const { videos } = Astro.props;
+---
+
+<>
+  { videos.map( ({ id, title }: { id: string, title: string }) =>
+      <YouTube
+        id={id}
+        title={title}
+      />
+    )
+  }
+</>
+

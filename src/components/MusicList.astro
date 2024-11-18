@@ -1,0 +1,16 @@
+---
+import Bandcamp from '@/components/widgets/Bandcamp.astro';
+
+const { music } = Astro.props;
+---
+
+<>
+  { music.map( ({ id, title }: { id: string, title: string }) =>
+      <Bandcamp
+        id={id}
+        title={title}
+      />
+    )
+  }
+</>
+

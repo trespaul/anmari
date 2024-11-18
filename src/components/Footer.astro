@@ -1,7 +1,10 @@
 ---
+import { getEntry } from 'astro:content';
+
 const today = new Date();
+const author = await getEntry('metadata', 'author');
 ---
 
-  &copy; {today.getFullYear()} Anmari van der Westhuizen. All rights reserved.
 <footer class="text-base text-center py-8">
+  &copy; {today.getFullYear()} {author.data.value}. All rights reserved.
 </footer>

@@ -1,5 +1,7 @@
 ---
-import { SITE_TITLE } from '@/consts';
+import { getEntry } from 'astro:content';
+
+const title = (await getEntry('metadata', 'title')).data.value;
 
 const menuItems = [
   { url: '/about', name: 'About' },
@@ -19,7 +21,7 @@ const menuItems = [
       class="muted"
       href="/"
     >
-      {SITE_TITLE}
+      {title}
     </a>
 
   </div>

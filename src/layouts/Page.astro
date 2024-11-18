@@ -1,9 +1,21 @@
 ---
 import Base from '@/components/Base.astro';
+import FormattedDate from '@/components/FormattedDate.astro';
 import Gallery from '@/components/Gallery.astro';
+import MusicList from '@/components/MusicList.astro';
+import VideoList from '@/components/VideoList.astro';
 
-const { frontmatter } = Astro.props;
-const { title, subtitle, description, gallery = false } = frontmatter;
+const {
+  title,
+  subtitle,
+  description,
+  photos,
+  music,
+  videos,
+  start,
+  end,
+  summary
+} = Astro.props;
 ---
 
 <Base title={title} description={description}>
@@ -15,11 +27,22 @@ const { title, subtitle, description, gallery = false } = frontmatter;
     <section>
       <h1>{title}</h1>
       { subtitle && <p class="subtitle">{subtitle}</p> }
-      <!-- ToC -->
+      { start &&
+          <p class="date">
+            <FormattedDate
+              start={new Date(start)}
+              end={end ? new Date(end) : undefined}
+            />
+          </p>
+      }
+      { summary && <p>{summary}</p> }
+      <!-- ToC here -->
     </section>
     <article class="page">
       <slot />
+      { music && <MusicList music={music} /> }
+      { videos && <VideoList videos={videos} /> }
     </article>
   </section>
-  { gallery && <Gallery gallery={gallery} /> }
+  { photos && <Gallery gallery={photos} /> }
 </Base>

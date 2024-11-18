@@ -1,29 +1,33 @@
 ---
 import { Image } from 'astro:assets';
+import { getEntry, type CollectionEntry } from 'astro:content';
+import Base from '@/components/Base.astro';
 
-import Base from '../components/Base.astro';
+const title =       (await getEntry('metadata', 'title'      )).data.value;
+const description = (await getEntry('metadata', 'description')).data.value;
+const logo =        (await getEntry('metadata', 'logo'       )).data.value;
+const tagline =     (await getEntry('metadata', 'tagline'    )).data.value;
 
-import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
-
-import logoImage from '../assets/logo.svg';
+const logoObject = await getEntry('files', logo) as CollectionEntry<'files'>;
 ---
 
-<Base title={SITE_TITLE} description={SITE_DESCRIPTION} header={false}>
+<Base title={title} description={description} header={false}>
   <main class="snap-y snap-mandatory px-12 mx-auto container">
     <section
       id="hero"
       class="min-h-screen snap-center snap-always
-      grid grid-cols-1 md:grid-cols-2 gap-x-4 gap-y-4 items-start content-center"
+        grid grid-cols-1 md:grid-cols-2 gap-x-4 gap-y-4 items-start content-center"
     >
       <div class="hero-text">
-        <h1 class="text-4xl font-bold normal-case mb-2">{SITE_TITLE}</h1>
-        <p class="text-3xl">{SITE_DESCRIPTION}</p>
+        <h1 class="text-4xl font-bold normal-case mb-2">{title}</h1>
+        <p class="text-3xl">{tagline}</p>
       </div>
       <Image
         id="hero-logo"
         class="max-w-xs"
-        src={logoImage}
-        alt="Anmari's cello logo."
+        src={logoObject.data.url}
+        alt={logoObject.data.description}
+        inferSize={true}
       />
     </section>
 
@@ -35,7 +39,7 @@ import logoImage from '../assets/logo.svg';
     >
       <h2 class="font-bold md:font-normal mt-0">about</h2>
       <div class="mb-8">
-        <p class="inline mr-4">Anmari is one of South Africa’s leading cellists and has achieved worldwide recognition as a performer. She is Adjunct Professor in Music at the University of the Free State, where she also heads the Odeion String Quartet.</p>
+        <p class="inline mr-4">{description}</p>
         <a href="/about" class="btn">more</a>
       </div>
 
