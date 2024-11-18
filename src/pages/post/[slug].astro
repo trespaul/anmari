@@ -12,7 +12,7 @@ export async function getStaticPaths() {
 
 const { id } = Astro.props;
 const post = await getEntry('updates', id);
-const { title, description, photos, music, place, start, end } = post.data;
+const { title, description, photos, music, videos, place, start, end } = post.data;
 const { Content } = await render(post);
 ---
 
@@ -25,6 +25,7 @@ const { Content } = await render(post);
   music={music}
   start={start}
   end={end}
+  videos={videos}
 >
   <Content />
 </Page>
