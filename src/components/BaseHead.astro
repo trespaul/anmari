@@ -2,6 +2,7 @@
 import { ClientRouter } from "astro:transitions";
 
 import '@/styles/global.css';
+import '@/styles/fonts.css';
 
 interface Props {
   title: string;
@@ -26,10 +27,7 @@ import logo from '@/assets/logo.svg';
 
   <!-- Font preloads -->
   <link rel="preload" as="font" type="font/woff" crossorigin
-    href="/fonts/EBGaramond08-Regular.woff"
-  />
-  <link rel="preload" as="font" type="font/woff" crossorigin
-    href="/fonts/EBGaramond12-Regular.woff"
+    href="/fonts/EBGaramond_Latin.woff2"
   />
 
   <!-- Canonical URL -->
