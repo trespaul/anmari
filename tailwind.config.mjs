@@ -13,10 +13,10 @@ export default {
       colors: {
         text:       colors.stone[950],  // #0c0a09
         bg:         colors.orange[100], // #ffedd5
-        accent:     colors.red[400],    // #f87171
+        accent:     colors.orange[400], // #fb923c
         darktext:   colors.orange[100], // #ffedd5
         darkbg:     colors.stone[900],  // #1c1917
-        darkaccent: colors.red[500],    // #ef4444
+        darkaccent: colors.orange[400], // #fb923c
       },
     },
   },

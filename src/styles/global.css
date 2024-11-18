@@ -16,7 +16,7 @@ body {
 
 a, .btn {
   @apply
-    underline decoration-4 hover:no-underline
+    underline decoration-2 hover:no-underline
     decoration-accent dark:decoration-darkaccent;
 }
 
