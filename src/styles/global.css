@@ -29,14 +29,14 @@ input, textarea {
   @apply bg-text/10 dark:bg-darktext/10;
 }
 
-/* on pages: lowercase when in two-column, bold and normal case when stacked */
+/* on pages: normal weight when two columns, bold when stacked */
 h1 {
-  @apply text-4xl font-bold xl:font-normal xl:lowercase
+  @apply text-4xl font-bold xl:font-normal;
 }
 
-/* on pages: lowercase italic when two-column and h1 is lowercase and normal weight */
+/* on pages: italic when two columns and h1 is normal weight */
 .subtitle {
-  @apply font-normal xl:italic xl:lowercase;
+  @apply font-normal text-left xl:italic;
 }
 
 /* reapply basics */
