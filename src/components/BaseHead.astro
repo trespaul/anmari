@@ -1,5 +1,5 @@
 ---
-import { ViewTransitions } from "astro:transitions";
+import { ClientRouter } from "astro:transitions";
 
 import '@/styles/global.css';
 
@@ -54,7 +54,8 @@ import logo from '@/assets/logo.svg';
   <meta property="twitter:description" content={description} />
   <meta property="twitter:image" content={new URL(image, Astro.url)} />
 
-  <!-- ViewTransitions -->
-  <ViewTransitions />
+
+  <!-- View transitions -->
+  <ClientRouter />
 
 </head>
