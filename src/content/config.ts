@@ -32,12 +32,13 @@ function directusLoader(options: { collection: Collection }): Loader {
   }
 };
 
-function makeCollection(name: Collection) {
-  return defineCollection({
-    loader: directusLoader({ collection: name }),
-    // schema: z.object...
-  });
-}
+const pages = defineCollection({
+  loader: directusLoader({ collection: 'pages' }),
+})
+
+const updates = defineCollection({
+  loader: directusLoader({ collection: 'updates' }),
+})
 
 const metadata = defineCollection({
   loader: async () => {
@@ -61,7 +62,7 @@ const files = defineCollection({
 
 export const collections = {
   metadata,
-  pages: makeCollection('pages'),
-  updates: makeCollection('updates'),
+  pages,
+  updates,
   files,
 };
