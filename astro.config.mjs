@@ -10,4 +10,7 @@ import tailwind from '@astrojs/tailwind';
 export default defineConfig({
   site: 'https://anmarivanderwesthuizen.com',
   integrations: [mdx(), sitemap(), tailwind()],
+  image: {
+    domains: ["anmari.trespaul.com"],
+  },
 });
