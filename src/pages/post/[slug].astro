@@ -1,6 +1,7 @@
 ---
 import { getCollection, getEntry, render } from 'astro:content';
 import Page from '@/layouts/Page.astro';
+import type { CollectionEntry } from 'astro:content';
 
 export async function getStaticPaths() {
   const posts = await getCollection('updates');
@@ -11,7 +12,7 @@ export async function getStaticPaths() {
 }
 
 const { id } = Astro.props;
-const post = await getEntry('updates', id);
+const post = await getEntry('updates', id) as CollectionEntry<'updates'>;
 const { title, description, photos, music, videos, place, start, end } = post.data;
 const { Content } = await render(post);
 ---

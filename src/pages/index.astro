@@ -3,10 +3,21 @@ import { Image } from 'astro:assets';
 import { getEntry, type CollectionEntry } from 'astro:content';
 import Base from '@/components/Base.astro';
 
-const title =       (await getEntry('metadata', 'title'      )).data.value;
-const description = (await getEntry('metadata', 'description')).data.value;
-const logo =        (await getEntry('metadata', 'logo'       )).data.value;
-const tagline =     (await getEntry('metadata', 'tagline'    )).data.value;
+const title =
+  ( await getEntry('metadata', 'title') as CollectionEntry<'metadata'>
+  ).data.value;
+
+const description =
+  ( await getEntry('metadata', 'description') as CollectionEntry<'metadata'>
+  ).data.value;
+
+const logo =
+  ( await getEntry('metadata', 'logo') as CollectionEntry<'metadata'>
+  ).data.value;
+
+const tagline =
+  ( await getEntry('metadata', 'tagline') as CollectionEntry<'metadata'>
+  ).data.value;
 
 const logoObject = await getEntry('files', logo) as CollectionEntry<'files'>;
 ---

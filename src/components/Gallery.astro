@@ -15,7 +15,7 @@ const collectionQuery = gallery.map((item: GalleryItem) => ({
   id: item.directus_files_id
 }));
 
-const files: CollectionEntry<'files'>[] = await getEntries(collectionQuery);
+const files = await getEntries(collectionQuery) as CollectionEntry<'files'>[];
 ---
 
 <section

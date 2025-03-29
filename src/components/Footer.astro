@@ -1,10 +1,13 @@
 ---
 import { getEntry } from 'astro:content';
+import type { CollectionEntry } from 'astro:content';
 
 const today = new Date();
-const author = await getEntry('metadata', 'author');
+const author =
+  ( await getEntry('metadata', 'author') as CollectionEntry<'metadata'>
+  ).data.value;
 ---
 
 <footer class="text-base text-center py-8">
-  &copy; {today.getFullYear()} {author.data.value}. All rights reserved.
+  &copy; {today.getFullYear()} {author}. All rights reserved.
 </footer>

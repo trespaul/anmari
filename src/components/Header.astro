@@ -1,7 +1,10 @@
 ---
 import { getEntry } from 'astro:content';
+import type { CollectionEntry } from 'astro:content';
 
-const title = (await getEntry('metadata', 'title')).data.value;
+const title =
+  ( await getEntry('metadata', 'title') as CollectionEntry<'metadata'>
+  ).data.value;
 
 const menuItems = [
   { url: '/about', name: 'About' },

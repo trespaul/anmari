@@ -1,9 +1,14 @@
 import type { APIRoute } from 'astro';
 import rss from '@astrojs/rss';
-import { getEntry, getCollection } from 'astro:content';
+import { getEntry, getCollection, type CollectionEntry } from 'astro:content';
 
-const title =       (await getEntry('metadata', 'title'      )).data.value;
-const description = (await getEntry('metadata', 'description')).data.value;
+const title =
+  ( await getEntry('metadata', 'title') as CollectionEntry<'metadata'>
+  ).data.value;
+
+const description =
+  ( await getEntry('metadata', 'description') as CollectionEntry<'metadata'>
+  ).data.value;
 
 export const GET: APIRoute = async (context) => {
   const posts = await getCollection('updates');
