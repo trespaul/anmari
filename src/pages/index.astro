@@ -1,6 +1,7 @@
 ---
 import { getEntry, type CollectionEntry } from 'astro:content';
 import Base from '@/components/Base.astro';
+import logoFile from '@/assets/logo.svg';
 
 const title =
   ( await getEntry('metadata', 'title') as CollectionEntry<'metadata'>
@@ -35,7 +36,7 @@ const logoObject = await getEntry('files', logo) as CollectionEntry<'files'>;
       <img
         id="hero-logo"
         class="max-w-xs"
-        src={logoObject.data.url}
+        src={logoFile.src}
         alt={logoObject.data.description}
       />
     </section>
