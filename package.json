@@ -14,7 +14,7 @@
     "@astrojs/mdx": "^4.3.10",
     "@astrojs/rss": "^4.0.13",
     "@astrojs/sitemap": "^3.6.0",
-    "@directus/sdk": "^19.1.0",
+    "@directus/sdk": "^20.1.1",
     "@tailwindcss/vite": "^4.1.17",
     "astro": "^5.15.5",
     "tailwindcss": "^4.1.17",
