@@ -69,14 +69,6 @@ blockquote {
   @apply pl-4 border-l-4 mb-4 border-text dark:border-darktext;
 }
 
-ul:not(> #calendarList) {
-  @apply ml-8 mb-4 list-disc;
-}
-
-ol:not(#calendarList) {
-  @apply ml-8 mb-4 list-decimal;
-}
-
 /* TOC: extra space, no bullets, align to left, no link lines */
 #TableOfContents {
   @apply mt-8
