@@ -1,6 +1,16 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import 'tailwindcss';
+
+@theme {
+  --font-serif:
+    EB Garamond, ui-serif, Georgia, Cambria, 'Times New Roman', Times, serif;
+
+  --color-text:       var(--color-stone-950);
+  --color-bg:         var(--color-orange-100);
+  --color-accent:     var(--color-orange-400);
+  --color-darktext:   var(--color-bg);
+  --color-darkbg:     var(--color-stone-900);
+  --color-darkaccent: var(--color-accent);
+}
 
 /* basics */
 body {
@@ -59,11 +69,11 @@ blockquote {
   @apply pl-4 border-l-4 mb-4 border-text dark:border-darktext;
 }
 
-ul {
+ul:not(> #calendarList) {
   @apply ml-8 mb-4 list-disc;
 }
 
-ol {
+ol:not(#calendarList) {
   @apply ml-8 mb-4 list-decimal;
 }
 
