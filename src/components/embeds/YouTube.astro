@@ -1,0 +1,10 @@
+---
+const { id } = Astro.props;
+---
+
+<iframe
+  class="embed video-player youtube-player aspect-video max-w-[900px] my-8 mx-auto"
+  width="100%"
+  src={`https://www.youtube.com/embed/${id}`}
+  allowfullscreen
+/>

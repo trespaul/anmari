@@ -1,48 +1,46 @@
 ---
-import Base from '@/components/Base.astro';
-import FormattedDate from '@/components/FormattedDate.astro';
-import Gallery from '@/components/Gallery.astro';
-import MusicList from '@/components/MusicList.astro';
-import VideoList from '@/components/VideoList.astro';
+import Base from "@/components/Base.astro";
+import FormattedDate from "@/components/FormattedDate.astro";
+import Gallery from "@/components/Gallery.astro";
 
 const {
   title,
   subtitle,
   description,
-  photos,
-  music,
-  videos,
+  images,
   start,
   end,
-  summary
 } = Astro.props;
 ---
 
 <Base title={title} description={description}>
-  <section
-    class="text-3xl m-8
-      grid grid-cols-1 gap-x-4 gap-y-24 items-start
+  <article
+    class="text-3xl my-8
+      grid grid-cols-1 gap-x-4 gap-y-16 items-start
       xl:grid-cols-2"
   >
+    {/* Page title and metadata */}
     <section>
-      <h1>{title}</h1>
-      { subtitle && <p class="subtitle">{subtitle}</p> }
+      <h1 class="text-balance">{title}</h1>
+      { subtitle &&
+          <p class="mb-0! text-2xl text-left! text-balance">{subtitle}</p>
+      }
       { start &&
-          <p class="date">
+          <p class="mb-0! text-2xl">
             <FormattedDate
               start={new Date(start)}
               end={end ? new Date(end) : undefined}
             />
           </p>
       }
-      { summary && <p>{summary}</p> }
-      <!-- ToC here -->
+      { description &&
+          <p class="mb-0! text-2xl text-left! text-balance italic">{description}</p>
+      }
+      {/* ToC here */}
     </section>
-    <article class="page text-xl md:text-3xl">
+    <section class="prose text-xl md:text-3xl">
       <slot />
-      { music && <MusicList music={music} /> }
-      { videos && <VideoList videos={videos} /> }
-    </article>
-  </section>
-  { photos && <Gallery gallery={photos} /> }
+    </section>
+  </article>
+  { images && <Gallery images={images} /> }
 </Base>
