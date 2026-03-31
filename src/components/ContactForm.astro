@@ -1,0 +1,59 @@
+---
+// TODO: success redirect
+  // <input type="hidden" name="redirectTo" value="https://yoursite.com/thank-you">
+---
+
+<form
+  name="contact"
+  action="https://api.staticforms.dev/submit"
+  method="POST"
+  class="[&_input,&_textarea]:bg-text/10 [&_input,&_textarea]:dark:bg-darktext/10"
+>
+  <input
+    type="hidden"
+    name="apiKey"
+    value={import.meta.env.PUBLIC_STATIC_FORMS_KEY}
+  >
+  <div class="mb-4">
+    <label>
+      name
+      <input class="w-full p-2" type="text" name="name" required>
+    </label>
+  </div>
+  <div class="mb-4">
+    <label>
+      email
+      <input class="w-full p-2" type="email" name="email" required>
+    </label>
+  </div>
+  <div class="mb-4">
+    <label>
+      subject
+      <input class="w-full p-2" type="text" name="subject" required>
+    </label>
+  </div>
+  <div class="mb-4 hidden">
+    <label>
+      don't fill this in if you're human
+      <input type="text" name="honeypot" class="hidden">
+    </label>
+  </div>
+  <div class="mb-4">
+    <label>
+      message
+      <textarea class="w-full p-2 h-48" name="message"></textarea>
+    </label>
+  </div>
+  <div
+    class="g-recaptcha mt-8"
+    data-sitekey={import.meta.env.RECAPTCHA_SITE_KEY}
+  />
+  <button class="smallcaps mt-4 cursor-pointer" type="submit"><a>send</a></button>
+</form>
+
+<script
+  is:inline
+  src="https://www.google.com/recaptcha/api.js"
+  async
+  defer
+></script>

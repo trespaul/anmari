@@ -1,101 +1,77 @@
-@import 'tailwindcss';
+@import "tailwindcss";
+
+@theme inline {
+  --font-serif: var(--font-fraunces);
+
+}
 
 @theme {
-  --font-serif:
-    EB Garamond, ui-serif, Georgia, Cambria, 'Times New Roman', Times, serif;
-
-  --color-text:       var(--color-stone-950);
-  --color-bg:         var(--color-orange-100);
-  --color-accent:     var(--color-orange-400);
+  --color-text:       var(--color-neutral-950);
+  --color-bg:         var(--color-neutral-50);
+  --color-accent:     var(--color-text);
   --color-darktext:   var(--color-bg);
-  --color-darkbg:     var(--color-stone-900);
-  --color-darkaccent: var(--color-accent);
+  --color-darkbg:     var(--color-neutral-900);
+  --color-darkaccent: var(--color-darktext);
 }
 
 /* basics */
 body {
   @apply
-    font-serif text-3xl
+    font-serif font-light dark:font-extralight text-xl md:text-3xl
     text-text dark:text-darktext
     bg-bg dark:bg-darkbg;
+  font-variation-settings: "SOFT" 0, "WONK" 0;
 }
 
-.btn {
+.smallcaps {
   font-variant: small-caps;
 }
 
-a, .btn {
-  @apply
-    underline decoration-2 hover:no-underline
-    decoration-accent dark:decoration-darkaccent;
+a {
+  @apply hover:opacity-70;
+  .prose &:not(#list &), footer & {
+    @apply underline decoration-dotted;
+  };
 }
 
-/* variant */
-a.muted {
-  @apply no-underline hover:opacity-70;
-}
+/* button { */
+  /* @apply hover:opacity-70; */
+/* } */
 
-input, textarea {
-  @apply bg-text/10 dark:bg-darktext/10;
-}
+article {
+  h2 {
+    @apply text-4xl mt-8 mb-4
+  }
 
-/* on pages: normal weight when two columns, bold when stacked */
-h1 {
-  @apply text-4xl font-bold xl:font-normal;
-}
+  h3 {
+    @apply italic mb-4 mt-6
+  }
 
-/* on pages: italic when two columns and h1 is normal weight */
-.subtitle {
-  @apply font-normal text-left xl:italic;
-}
+  p {
+    @apply text-left mb-4 text-pretty;
+    font-variation-settings: "SOFT" 50, "WONK" 0;
+  }
 
-/* reapply basics */
-h2 {
-  @apply text-4xl mt-8 mb-4
-}
+  /* reapply basics */
+  blockquote {
+    @apply pl-4 border-l-4 mb-4 border-text dark:border-darktext;
+  }
 
-h3 {
-  @apply italic mb-4 mt-6
-}
+  /* TOC: extra space, no bullets, align to left, no link lines */
+  #TableOfContents {
+    @apply mt-8
+  }
 
-/* reapply basics, justify if screen big enough */
-p {
-  @apply text-left md:text-justify mb-4;
-  hyphens: auto;
-}
+  #TableOfContents ul {
+    @apply list-none
+  }
 
-/* reapply basics */
-blockquote {
-  @apply pl-4 border-l-4 mb-4 border-text dark:border-darktext;
-}
+  #TableOfContents > ul {
+    @apply ml-0
+  }
 
-/* TOC: extra space, no bullets, align to left, no link lines */
-#TableOfContents {
-  @apply mt-8
+  /* so heading in left and right column align */
+  & .prose > :first-child {
+    @apply mt-0!
+  }
 }
-
-#TableOfContents ul {
-  @apply list-none
-}
-
-#TableOfContents > ul {
-  @apply ml-0
-}
-
-#TableOfContents a {
-  @apply no-underline hover:opacity-70
-  /* can I "@apply" a.muted? */
-}
-
-/* so heading in left and right column align */
-article.page > :first-child {
-  @apply mt-0
-}
-
-/*figure.gallery-item figcaption {
-  @apply hidden absolute bg-white bottom-0
-}
-
-figure.gallery-item:hover figcaption {
-  @apply block
-}*/

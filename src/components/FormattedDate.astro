@@ -7,14 +7,14 @@ interface Props {
 const { start, end } = Astro.props;
 
 function format(date: Date) {
-  return date.toLocaleDateString('en-za', {
-    year: 'numeric',
-    month: 'long',
-    day: 'numeric',
+  return date.toLocaleDateString("en-za", {
+    year: "numeric",
+    month: "long",
+    day: "numeric",
   });
 };
 
-// TODO: include time if not '00:00'
+// TODO: include time if not "00:00"
 // TODO: print only day number range if month and year the same
 ---
 

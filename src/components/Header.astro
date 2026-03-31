@@ -1,21 +1,15 @@
 ---
-import { getEntry } from 'astro:content';
-import type { CollectionEntry } from 'astro:content';
-
-const title =
-  ( await getEntry('metadata', 'title') as CollectionEntry<'metadata'>
-  ).data.value;
+import { metadata } from "@/metadata.ts";
 
 const menuItems = [
-  { url: '/about', name: 'About' },
-  { url: '/calendar', name: 'Calendar' },
-  { url: '/#info', name: 'Media' },
-  { url: '/#contact', name: 'Contact' },
+  { url: "/about", name: "About" },
+  { url: "/updates", name: "Updates" },
+  { url: "/contact", name: "Contact" },
 ]
 ---
 
 <header
-  class="container p-8 mx-auto
+  class="py-8
     grid grid-cols-1 gap-4 items-start
     xl:grid-cols-2"
 >
@@ -24,7 +18,7 @@ const menuItems = [
       class="muted"
       href="/"
     >
-      {title}
+      {metadata.title}
     </a>
 
   </div>

@@ -1,0 +1,14 @@
+---
+import { getCollection } from "astro:content";
+import Page from "@/layouts/Page.astro";
+import List from "@/components/List.tsx";
+
+const title = "Updates";
+const posts = await getCollection("updates");
+
+// TODO: put updates in store to not download twice
+---
+
+<Page title={title}>
+  <List client:load posts={posts} />
+</Page>
