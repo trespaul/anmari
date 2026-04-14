@@ -28,7 +28,7 @@ const sortedPosts = posts.sort((a, b) =>
     </div>
     <div class="flex flex-row items-end gap-x-8">
       <p class="grow text-balance">
-        <NextUp client:load sortedPosts={sortedPosts} />
+        <NextUp client:only="solid" />
       </p>
       <a href="#more" class="smallcaps"><span>more</span>&nbsp;↓</a>
     </div>

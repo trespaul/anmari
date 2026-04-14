@@ -1,17 +1,15 @@
-import { Show } from "solid-js";
+import { For, Show, createEffect, createMemo, onMount } from "solid-js";
+import { useStore } from "@nanostores/solid";
+import { $posts, $status, loadPosts } from "@/store.ts";
 
-type PostData = {
-  title: string;
-  description?: string;
-  type: ("event" | "video" | "music")[];
-  place?: string;
-  start: Date;
-  end?: Date;
-};
-
-type Post = {
-  id: string;
-  data: PostData;
+export type PostMeta = {
+  id: string,
+  title: string,
+  description?: string,
+  type: ("event" | "music" | "video")[],
+  start: Date,
+  end?: Date,
+  place?: string,
 };
 
 function formatDate(date: Date): string {
@@ -21,34 +19,43 @@ function formatDate(date: Date): string {
   });
 }
 
+//TODO: sort
+
 // FUTURE TODO: show "NOW: {ongoing event}" if post end date >= now
 
-export default function NextUp(props: { sortedPosts: Post[] }) {
+export default function NextUp() {
+  const posts = useStore($posts);
+  const status = useStore($status);
+
+  onMount(() => loadPosts());
+
   const now = new Date();
 
   // next-up = first post of those that are >= now
-  const next = props.sortedPosts.filter(post =>
-    post.data.start >= now
-  )[0];
+  const next = createMemo((): PostMeta => posts().find((post: PostMeta) =>
+    post.start >= now
+  )!);
 
-  const toShow = next ? {
+  const toShow = createMemo((): {type: string, post: PostMeta} => next() ? {
     type: "next",
-    post: next,
+    post: next(),
   } : {
     type: "latest",
-    post: (props.sortedPosts.filter(post =>
-      post.data.start < now
+    post: (posts().filter((post: PostMeta) =>
+      post.start < now
     )).reverse()[0],
-  }
+  });
 
-  return <>
-    <span class="smallcaps">{toShow.type}</span>
-    <span style="baseline-shift: 3px">→</span>
-    <a href={`/post/${toShow.post.id}`}>
-      {formatDate(toShow.post.data.start)}: {toShow.post.data.title}
-      <Show when={toShow.post.data.place}>
-        <span class="italic">, {toShow.post.data.place}</span>
-      </Show>
-    </a>
-  </>;
+  return (
+    <Show when={toShow().post}>
+      <span class="smallcaps">{toShow().type}</span>
+      <span style="baseline-shift: 3px">→</span>
+      <a href={`/post/${toShow().post.id}`}>
+        {formatDate(toShow().post.start)}: {toShow().post.title}
+        <Show when={toShow().post.place}>
+          <span class="italic">, {toShow().post.place}</span>
+        </Show>
+      </a>
+    </Show>
+  );
 }
