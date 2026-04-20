@@ -9,6 +9,16 @@ const posts = await getCollection("updates");
 const sortedPosts = posts.sort((a, b) =>
   a.data.start.getTime() - b.data.start.getTime()
 );
+
+const now = new Date();
+const futurePosts = sortedPosts.filter(post =>
+  post.data.start.getTime() >= now.getTime()
+);
+
+const futureOrLatest =
+  futurePosts.length != 0
+  ? futurePosts
+  : [sortedPosts.reverse()[0]];
 ---
 
 <Base title={metadata.title} description={metadata.description} header={false} footer={false}>
@@ -28,7 +38,7 @@ const sortedPosts = posts.sort((a, b) =>
     </div>
     <div class="flex flex-row items-end gap-x-8">
       <p class="grow text-balance">
-        <NextUp client:load sortedPosts={sortedPosts} />
+        <NextUp client:load sortedPosts={futureOrLatest} />
       </p>
       <a href="#more" class="smallcaps"><span>more</span>&nbsp;↓</a>
     </div>
