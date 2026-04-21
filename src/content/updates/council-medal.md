@@ -12,4 +12,4 @@ Speaking with Anthony Mthembu for UFS campus news, Anmari said that this award i
 
 ![Anmari receives the Council Medal.](./assets/council-medal.jpg)
 
-(Photo by Kaleidoscope Studios for the UFS.)
+Anmari receives the Council Medal, pictured with Vice-Chancellor Prof. Hester Klopper and Registrar Mr. Nikile Ntsababa. (Photo by Kaleidoscope Studios for the UFS.)
