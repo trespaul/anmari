@@ -10,6 +10,6 @@ During the University of the Free State (UFS)'s April graduation ceremony, Anmar
 
 Speaking with Anthony Mthembu for UFS campus news, Anmari said that this award is not merely a personal honour, but symbolises a ["recognition of a shared artistic vision and collective commitment"](https://www.ufs.ac.za/templates/news-archive-item/campus-news/2026/april/council-medal-recognises-prof-van-der-westhuizen-joubert-s-role-in-expanding-access-to-music-education).
 
-![Anmari receives the Council Medal.](./assets/council-medal.jpg)
+![Anmari receives the Council Medal.](./assets/council-medal.webp)
 
 Anmari receives the Council Medal, pictured with Vice-Chancellor Prof. Hester Klopper and Registrar Mr. Nikile Ntsababa. (Photo by Kaleidoscope Studios for the UFS.)
