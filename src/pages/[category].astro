@@ -35,7 +35,7 @@ const { title, filter } = Astro.props;
 const posts = await getCollection("updates");
 const categoryPosts = posts
   .filter(post => filter(post.data.type))
-  .sort( (a, b) => (new Date(b.data.start)).getTime() - (new Date(a.data.start)).getTime() );
+  .toSorted( (a, b) => (new Date(b.data.start)).getTime() - (new Date(a.data.start)).getTime() );
 ---
 
 <Page

@@ -6,7 +6,7 @@ import NextUp from "@/components/NextUp.tsx";
 import { getCollection } from "astro:content";
 
 const posts = await getCollection("updates");
-const sortedPosts = posts.sort((a, b) =>
+const sortedPosts = posts.toSorted((a, b) =>
   a.data.start.getTime() - b.data.start.getTime()
 );
 
@@ -16,9 +16,9 @@ const futurePosts = sortedPosts.filter(post =>
 );
 
 const futureOrLatest =
-  futurePosts.length != 0
+  futurePosts.length > 0
   ? futurePosts
-  : [sortedPosts.reverse()[0]];
+  : [sortedPosts.toReversed()[0]];
 ---
 
 <Base title={metadata.title} description={metadata.description} header={false} footer={false}>

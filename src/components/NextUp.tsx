@@ -38,7 +38,7 @@ export default function NextUp(props: { sortedPosts: Post[] }) {
     type: "latest",
     post: (props.sortedPosts.filter(post =>
       post.data.start < now
-    )).reverse()[0],
+    )).toReversed()[0],
   }
 
   return <>
