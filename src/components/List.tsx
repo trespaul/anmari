@@ -149,7 +149,8 @@ function ListItem(props: { post: Post }) {
         <ul class="list-none ml-0 pb-4">
           <li class="opacity-70">
             <Show when={data.start}>
-              <span>{formatDate(data.start)}</span>{data.end && ` – ${formatDate(data.end)}`}
+              <span>{formatDate(data.start)}</span>
+              {data.end && <span> – {formatDate(data.end)}</span>}
             </Show>
           </li>
           <li class="text-balance">{data.title}</li>
