@@ -22,6 +22,7 @@ export default defineConfig({
     provider: fontProviders.google(),
     styles: ["normal", "italic"],
     weights: ["100 900"],
+    subsets: ["latin", "latin-ext"],
     fallbacks: ["serif"],
     options: {
       experimental: {
